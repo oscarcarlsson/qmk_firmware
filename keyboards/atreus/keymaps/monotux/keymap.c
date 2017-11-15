@@ -31,9 +31,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   },
 
   [_RS] = {
-    {KC_INS,  NO_AT,   KC_UP,   KC_MPLY, KC_VOLU, _______, KC_PGUP, KC_7,    KC_8, KC_9,    NO_ASTR },
+    {KC_INS,  KC_HOME, KC_UP,   KC_END,  KC_VOLU, _______, KC_PGUP, KC_7,    KC_8, KC_9,    NO_ASTR },
     {KC_DELT, KC_LEFT, KC_DOWN, KC_RGHT, KC_VOLD, _______, KC_PGDN, KC_4,    KC_5, KC_6,    NO_PLUS },
-    {_______, NO_RBRC, NO_LPRN, NO_RPRN, NO_AMPR, KC_LCTL, NO_SLSH, KC_1,    KC_2, KC_3,    NO_BSLS },
+    {_______, _______, _______, _______, KC_MPLY, KC_LCTL, NO_SLSH, KC_1,    KC_2, KC_3,    NO_BSLS },
     {_______, _______, _______, _______, _______, KC_LALT, _______, _______, KC_0, _______, NO_EQL  }
   },
 
