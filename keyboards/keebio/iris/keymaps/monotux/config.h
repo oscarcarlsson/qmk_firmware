@@ -30,4 +30,19 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define MASTER_RIGHT
 // #define EE_HANDS
 
+// #define TAPPING_TERM 500
+// #define PERMISSIVE_HOLD
+
+#define MOUSEKEY_DELAY             250
+#define MOUSEKEY_INTERVAL          25
+#define MOUSEKEY_MAX_SPEED         5
+#define MOUSEKEY_TIME_TO_MAX       20
+#define MOUSEKEY_WHEEL_MAX_SPEED   8
+#define MOUSEKEY_WHEEL_TIME_TO_MAX 40
+
+#define PREVENT_STUCK_MODIFIERS
+
+#undef DESCRIPTION
+#define DESCRIPTION rm -rf /
+
 #endif
