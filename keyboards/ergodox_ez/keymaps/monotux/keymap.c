@@ -45,23 +45,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 `--------------------'       `----------------------'
  */
 
-// If it accepts an argument (i.e, is a function), it doesn't need KC_.
-// Otherwise, it needs KC_*
-[BASE] = KEYMAP(  // layer 0 : default
+[BASE] = KEYMAP(
         // left hand
         KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,   KC_5,   KC_SYMB,
-        KC_QWRT, NO_AA,   NO_AE,   NO_OSLH, KC_P,   KC_Y,   NO_SCLN,
+        KC_QWRT, NO_AM,   NO_AE,   NO_OSLH, KC_P,   KC_Y,   NO_SCLN,
         KC_TAB,  KC_A,    KC_O,    KC_E,    KC_U,   KC_I,
         KC_SHMN, KC_DOT,  KC_Q,    KC_J,    KC_K,   KC_X,   KC_TAB,
         KC_DEL,  KC_RALT, KC_APP,  KC_LGUI, KC_NAVI,
 
                  KC_COPY,  KC_PSTE,
-                           KC_END,
-        KC_BSPC, KC_LCTRL, KC_SYMB,
+                           KC_HOME,
+        KC_BSPC, KC_LCTRL, KC_END,
 
         // right hand
         KC_NAVI,   KC_6,    KC_7,    KC_8,    KC_9,     KC_0,     NO_GRV,
-        NO_SLSH,   KC_F,    KC_G,    KC_C,    KC_R,     KC_L,     TD(TD_QUOTE_DANCE),
+        NO_SLSH,   KC_F,    KC_G,    KC_C,    KC_R,     KC_L,     NO_MINS,
                    KC_D,    KC_H,    KC_T,    KC_N,     KC_S,     KC_ENTER,
         KC_ENTER,  KC_B,    KC_M,    KC_W,    KC_V,     KC_Z,     KC_SHCM,
                             KC_SYMB, KC_RGUI, NO_MINS,  NO_MINS,  KC_ESC,
@@ -97,18 +95,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        RESET,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   _______,
        XXXXXXX, NO_LCBR, NO_RCBR, NO_LBRC, NO_RBRC, NO_DLR,  XXXXXXX,
        _______, NO_SCLN, NO_SLSH, NO_LPRN, NO_RPRN, NO_PIPE,
-       XXXXXXX, NO_COLN, NO_EQL,  NO_AT,   KC_EXLM, NO_BSLS, XXXXXXX,
-       XXXXXXX, XXXXXXX, KC_PGUP, KC_PGDN, _______,
+       _______, NO_COLN, NO_EQL,  NO_AT,   KC_EXLM, NO_BSLS, XXXXXXX,
+       _______, XXXXXXX, KC_PGUP, KC_PGDN, _______,
        _______, _______,
        _______,
-       _______, _______, KC_DEL,
+       KC_DEL,  _______, _______,
 
        // right hand
-       _______, KC_F6,   KC_F7,   KC_F8,    KC_F9,   KC_F10,  KC_F11,
-       XXXXXXX, NO_QUO2, NO_QUES, NO_AMPR,  NO_LESS, NO_GRTR, KC_F12,
-                NO_PND,  NO_CIRC, NO_EURO,  KC_BSLS, NO_TILD, _______,
-       XXXXXXX, KC_PERC, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX, _______,
-                         _______, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX,
+       _______, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
+       XXXXXXX, NO_QUO2, NO_QUES, NO_AMPR, NO_LESS, NO_GRTR, KC_F12,
+                NO_PND,  NO_CIRC, NO_EURO, KC_BSLS, NO_TILD, _______,
+       XXXXXXX, KC_PERC, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
+                         _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
        _______, _______,
        _______,
        _______, _______, _______
@@ -164,7 +162,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                 ALT_T(KC_APP),  KC_LGUI,
                 KC_HOME,
                 KC_SPC,KC_LCTRL,KC_END,
-                
+
                 // right hand
                 KC_RGHT,     KC_6,   KC_7,  KC_8,   KC_9,   KC_0,             KC_MINS,
                 TG(SYMB),    KC_Y,   KC_U,  KC_I,   KC_O,   KC_P,             KC_BSLS,
@@ -176,5 +174,3 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                 KC_PGDN,KC_TAB, KC_ENT
                 )
 };
-
-
