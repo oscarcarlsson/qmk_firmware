@@ -35,21 +35,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_NAVI] = {
     { KC_INS,  KC_HOME, KC_UP,   KC_END,  KC_VOLU, _______, KC_PGUP, KC_7,    KC_8,    KC_9,    NO_ASTR },
     { KC_DELT, KC_LEFT, KC_DOWN, KC_RGHT, KC_VOLD, _______, KC_PGDN, KC_4,    KC_5,    KC_6,    NO_PLUS },
-    { KC_LSFT, _______, _______, _______, KC_MPLY, _______, NO_SLSH, KC_1,    KC_2,    KC_3,    NO_BSLS },
+    { NO_COLN, _______, _______, _______, KC_MPLY, _______, NO_SLSH, KC_1,    KC_2,    KC_3,    NO_BSLS },
     { _______, _______, _______, _______, _______, _______, _______, _______, KC_0,    _______, NO_EQL  }
   },
 
   [_SYMB] = {
     { NO_LCBR, NO_RCBR, NO_LBRC, NO_RBRC, NO_DLR,  _______, NO_QUO2, NO_QUES, NO_AMPR, NO_LESS, NO_GRTR },
     { NO_SCLN, NO_SLSH, NO_LPRN, NO_RPRN, NO_PIPE, _______, KC_HASH, NO_CIRC, NO_TILD, NO_QUOT, NO_GRV  },
-    { KC_SPC,  NO_EQL,  NO_AT,   KC_EXLM, NO_BSLS, _______, KC_PERC, NO_EURO, XXXXXXX, XXXXXXX, NO_ACUT },
+    { NO_COLN, NO_EQL,  NO_AT,   KC_EXLM, NO_BSLS, _______, KC_PERC, NO_EURO, XXXXXXX, XXXXXXX, NO_ACUT },
     { KC_GESC, _______, _______, _______, _______, _______, _______, _______, KC_COMM, _______, _______ }
   },
 
   [_DUAL] = {
     { KC_INS,  KC_HOME, KC_UP,   KC_END,  KC_PGUP, _______, XXXXXXX, KC_F7,   KC_F8,   KC_F9,   KC_F10   },
     { KC_DELT, KC_LEFT, KC_DOWN, KC_RGHT, KC_DOWN, _______, XXXXXXX, KC_F4,   KC_F5,   KC_F6,   KC_F11   },
-    { XXXXXXX, KC_VOLU, KC_VOLD, XXXXXXX,  RESET , _______, XXXXXXX, KC_F1,   KC_F2,   KC_F3,   KC_F12   },
+    { KC_LSFT, KC_VOLU, KC_VOLD, XXXXXXX,  RESET , _______, XXXXXXX, KC_F1,   KC_F2,   KC_F3,   KC_F12   },
     { _______, _______, _______, _______, _______, _______, _______, _______, KC_PSCR, KC_SLCK, KC_PAUSE }
   }
 };
