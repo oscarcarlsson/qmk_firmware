@@ -21,8 +21,32 @@ enum custom_keycodes {
 
 #define KC_LSHD SFT_T(KC_DOT)
 #define KC_RSDT SFT_T(KC_Z)
+
+// Dual purpose thumb keys, default layer
 #define KC_LCBS CTL_T(KC_BSPC)
 #define KC_LASP ALT_T(KC_SPC)
+
+// Dual purpose thumb keys, other layers
+#define KC_LCDE CTL_T(KC_DEL)
+#define KC_LAEN ALT_T(KC_ENT)
+
+enum unicode_name { POO, HERT, SML2, DEYE };
+
+const uint32_t PROGMEM unicode_map[] = { [POO] = 0x1F4A9,
+                                         [HERT] = 0x2764,
+                                         [SML2] = 0x1F605,
+};
+
+#define KC_GUI1 LGUI(KC_1)
+#define KC_GUI2 LGUI(KC_2)
+#define KC_GUI3 LGUI(KC_3)
+#define KC_GUI4 LGUI(KC_4)
+#define KC_GUI5 LGUI(KC_5)
+#define KC_GUI6 LGUI(KC_6)
+#define KC_GUI7 LGUI(KC_7)
+#define KC_GUI8 LGUI(KC_8)
+#define KC_GUI9 LGUI(KC_9)
+#define KC_GUI0 LGUI(KC_0)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_DEFT] = {
@@ -35,23 +59,29 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_NAVI] = {
     { KC_INS,  KC_HOME, KC_UP,   KC_END,  KC_VOLU, _______, KC_PGUP, KC_7,    KC_8,    KC_9,    NO_ASTR },
     { KC_DELT, KC_LEFT, KC_DOWN, KC_RGHT, KC_VOLD, _______, KC_PGDN, KC_4,    KC_5,    KC_6,    NO_PLUS },
-    { NO_COLN, _______, _______, _______, KC_MPLY, _______, NO_SLSH, KC_1,    KC_2,    KC_3,    NO_BSLS },
-    { _______, _______, _______, _______, _______, _______, _______, _______, KC_0,    _______, NO_EQL  }
+    { NO_COLN, XXXXXXX, XXXXXXX, XXXXXXX, KC_MPLY, KC_LCDE, NO_SLSH, KC_1,    KC_2,    KC_3,    NO_BSLS },
+    { _______, _______, _______, _______, _______, KC_LAEN, _______, _______, KC_0,    _______, NO_EQL  }
   },
 
   [_SYMB] = {
     { NO_LCBR, NO_RCBR, NO_LBRC, NO_RBRC, NO_DLR,  _______, NO_QUO2, NO_QUES, NO_AMPR, NO_LESS, NO_GRTR },
     { NO_SCLN, NO_SLSH, NO_LPRN, NO_RPRN, NO_PIPE, _______, KC_HASH, NO_CIRC, NO_TILD, NO_QUOT, NO_GRV  },
-    { NO_COLN, NO_EQL,  NO_AT,   KC_EXLM, NO_BSLS, _______, KC_PERC, NO_EURO, XXXXXXX, XXXXXXX, NO_ACUT },
-    { KC_GESC, _______, _______, _______, _______, _______, _______, _______, KC_COMM, _______, _______ }
+    { NO_COLN, NO_EQL,  NO_AT,   KC_EXLM, NO_BSLS, KC_LCDE, KC_PERC, NO_EURO, XXXXXXX, XXXXXXX, NO_ACUT },
+    { KC_GESC, _______, _______, _______, _______, KC_LAEN, _______, _______, KC_COMM, _______, _______ }
   },
 
   [_DUAL] = {
-    { KC_INS,  KC_HOME, KC_UP,   KC_END,  KC_PGUP, _______, XXXXXXX, KC_F7,   KC_F8,   KC_F9,   KC_F10   },
-    { KC_DELT, KC_LEFT, KC_DOWN, KC_RGHT, KC_DOWN, _______, XXXXXXX, KC_F4,   KC_F5,   KC_F6,   KC_F11   },
-    { KC_LSFT, KC_VOLU, KC_VOLD, XXXXXXX,  RESET , _______, XXXXXXX, KC_F1,   KC_F2,   KC_F3,   KC_F12   },
+    { KC_GUI1, KC_GUI2, KC_GUI3, KC_GUI4, KC_GUI5, _______, X(POO),  KC_F7,   KC_F8,   KC_F9,   KC_F10   },
+    { KC_GUI6, KC_GUI7, KC_GUI8, KC_GUI9, KC_GUI0, _______, X(HERT), KC_F4,   KC_F5,   KC_F6,   KC_F11   },
+    { KC_LSFT, KC_MPRV, KC_MPLY, KC_MNXT, RESET,   _______, X(SML2), KC_F1,   KC_F2,   KC_F3,   KC_F12   },
     { _______, _______, _______, _______, _______, _______, _______, _______, KC_PSCR, KC_SLCK, KC_PAUSE }
   }
+};
+
+void matrix_init_user() {
+  // give time for usb to initialize
+  _delay_ms(500);
+  set_unicode_input_mode(UC_LNX);
 };
 
 void persistent_default_layer_set(uint16_t default_layer) {
