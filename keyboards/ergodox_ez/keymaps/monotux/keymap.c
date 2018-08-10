@@ -49,7 +49,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_BASE] = KEYMAP(
         // left hand
         KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,   KC_5,   KC_SYMB,
-        KC_COMM, NO_AM,   NO_AE,   NO_OSLH, KC_P,   KC_Y,   NO_SCLN,
+        KC_DOT,  NO_AM,   NO_AE,   NO_OSLH, KC_P,   KC_Y,   NO_SCLN,
         KC_TAB,  KC_A,    KC_O,    KC_E,    KC_U,   KC_I,
         KC_SHMN, KC_DOT,  KC_Q,    KC_J,    KC_K,   KC_X,   KC_TAB,
         KC_DEL,  KC_RALT, KC_APP,  KC_NAVI, KC_LGUI,
@@ -87,7 +87,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        XXXXXXX, NO_QUO2, NO_QUES, NO_AMPR, NO_LESS, NO_GRTR, KC_F12,
                 NO_HASH, NO_TILD, NO_EURO, NO_QUOT, NO_GRV,  _______,
        XXXXXXX, KC_PERC, NO_CIRC, XXXXXXX, XXXXXXX, NO_ACUT, _______,
-                         _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+                         _______, _______, XXXXXXX, XXXXXXX, XXXXXXX,
        _______, _______,
        _______,
        _______, _______, _______
@@ -98,7 +98,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        XXXXXXX, KC_PGUP, KC_HOME, KC_UP,   KC_END,  KC_VOLU, XXXXXXX,
        XXXXXXX, KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, KC_VOLD,
        XXXXXXX, KC_MSEL, KC_MPLY, KC_MSTP, KC_MPRV, KC_MNXT, XXXXXXX,
-       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
+       XXXXXXX, XXXXXXX, XXXXXXX, _______, _______,
                                            _______, _______,
                                                     _______,
                                   _______, _______, _______,
