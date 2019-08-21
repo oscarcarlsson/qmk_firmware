@@ -16,6 +16,8 @@ enum custom_keycodes {
   SYMB,
   NAVI,
   SUPR,
+  REGR,
+  HALS,
 };
 
 #define KC_SHMN MT(MOD_LSFT, NO_MINS)
@@ -49,9 +51,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_BASE] = LAYOUT_ergodox(
         // left hand
         KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,   KC_5,   KC_SYMB,
-        KC_DOT,  NO_AM,   NO_AE,   NO_OSLH, KC_P,   KC_Y,   NO_SCLN,
+        NO_MINS, NO_AM,   NO_AE,   NO_OSLH, KC_P,   KC_Y,   NO_SCLN,
         KC_TAB,  KC_A,    KC_O,    KC_E,    KC_U,   KC_I,
-        KC_SHMN, KC_DOT,  KC_Q,    KC_J,    KC_K,   KC_X,   KC_TAB,
+        KC_LSFT, KC_DOT,  KC_Q,    KC_J,    KC_K,   KC_X,   KC_TAB,
         KC_DEL,  KC_RALT, KC_APP,  KC_NAVI, KC_LGUI,
 
                  KC_COPY,  KC_PSTE,
@@ -60,9 +62,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
         // right hand
         KC_NAVI,   KC_6,    KC_7,    KC_8,    KC_9,     KC_0,     NO_GRV,
-        NO_SLSH,   KC_F,    KC_G,    KC_C,    KC_R,     KC_L,     NO_MINS,
+        NO_SLSH,   KC_F,    KC_G,    KC_C,    KC_R,     KC_L,     KC_COMM,
                    KC_D,    KC_H,    KC_T,    KC_N,     KC_S,     KC_ENTER,
-        KC_ENTER,  KC_B,    KC_M,    KC_W,    KC_V,     KC_Z,     KC_SHCM,
+        KC_ENTER,  KC_B,    KC_M,    KC_W,    KC_V,     KC_Z,     KC_RSFT,
                             KC_RGUI, KC_SYMB, NO_MINS,  NO_MINS,  KC_ESC,
 
         KC_PGUP, KC_RALT,
@@ -94,7 +96,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                 ),
 
 [_NAVI] = LAYOUT_ergodox(
-       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
+       XXXXXXX, HALS,    REGR,    XXXXXXX, XXXXXXX, XXXXXXX, _______,
        XXXXXXX, KC_PGUP, KC_HOME, KC_UP,   KC_END,  KC_VOLU, XXXXXXX,
        XXXXXXX, KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, KC_VOLD,
        XXXXXXX, KC_MSEL, KC_MPLY, KC_MSTP, KC_MPRV, KC_MNXT, XXXXXXX,
@@ -166,6 +168,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       update_tri_layer(_SYMB, _NAVI, _SUPR);
     }
     return false;
+    break;
+  case HALS:
+    if (record->event.pressed) {
+      SEND_STRING("H'lsningar,\nOscar Carlsson\nLKAB IT applikationsdriften\n");
+    }
+    break;
+  case REGR:
+    if (record->event.pressed) {
+      SEND_STRING("Regards,\nOscar Carlsson\nLKAB IT application operations\n");
+    }
     break;
   }
   return true;
