@@ -1,5 +1,4 @@
 #include "atreus.h"
-#include "keymap_nordic.h"
 #include "keymap_swedish.h"
 
 #define _DEFT 0
@@ -22,14 +21,6 @@ enum custom_keycodes {
 #define KC_LSHD SFT_T(KC_DOT)
 #define KC_RSDT SFT_T(KC_Z)
 
-// Dual purpose thumb keys, default layer
-#define KC_LCBS CTL_T(KC_BSPC)
-#define KC_LASP ALT_T(KC_SPC)
-
-// Dual purpose thumb keys, other layers
-#define KC_LCDE CTL_T(KC_DEL)
-#define KC_LAEN ALT_T(KC_ENT)
-
 enum unicode_name { POO, HERT, SML2, DEYE };
 
 const uint32_t PROGMEM unicode_map[] = { [POO] = 0x1F4A9,
@@ -50,31 +41,31 @@ const uint32_t PROGMEM unicode_map[] = { [POO] = 0x1F4A9,
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_DEFT] = {
-    { NO_AM,   NO_AE,   NO_OSLH, KC_P,    KC_Y,    _______, KC_F,    KC_G,    KC_C,    KC_R,   KC_L    },
-    { KC_A,    KC_O,    KC_E,    KC_U,    KC_I,    _______, KC_D,    KC_H,    KC_T,    KC_N,   KC_S    },
-    { KC_LSHD, KC_Q,    KC_J,    KC_K,    KC_X,    KC_LCBS, KC_B,    KC_M,    KC_W,    KC_V,   KC_RSDT },
-    { KC_TAB,  KC_COMM, SYMB,    KC_LGUI, NAVI,    KC_LASP, SYMB,    NAVI,    NO_MINS, KC_APP, KC_ENT  }
+    { SE_ARNG, SE_ADIA, SE_ODIA, KC_P,    KC_Y,    _______, KC_F,    KC_G,    KC_C,    KC_R,   KC_L     },
+    { KC_A,    KC_O,    KC_E,    KC_U,    KC_I,    _______, KC_D,    KC_H,    KC_T,    KC_N,   KC_S     },
+    { KC_LSHD, KC_Q,    KC_J,    KC_K,    KC_X,    KC_LCTL, KC_B,    KC_M,    KC_W,    KC_V,   KC_RSDT  },
+    { KC_TAB,  KC_COMM, KC_LGUI, NAVI,    KC_BSPC, KC_LALT, KC_SPC,  SYMB,    SE_MINS, KC_APP, KC_ENT   }
   },
 
   [_NAVI] = {
-    { KC_INS,  KC_HOME, KC_UP,   KC_END,  KC_VOLU, _______, KC_PGUP, KC_7,    KC_8,    KC_9,    NO_ASTR },
-    { KC_DELT, KC_LEFT, KC_DOWN, KC_RGHT, KC_VOLD, _______, KC_PGDN, KC_4,    KC_5,    KC_6,    NO_PLUS },
-    { NO_COLN, XXXXXXX, XXXXXXX, XXXXXXX, KC_MPLY, KC_LCDE, NO_SLSH, KC_1,    KC_2,    KC_3,    NO_BSLS },
-    { _______, _______, _______, _______, _______, KC_LAEN, _______, _______, KC_0,    _______, NO_EQL  }
+    { KC_INS,  KC_HOME, KC_UP,   KC_END,  KC_VOLU, _______, KC_PGUP, KC_7,    KC_8,    KC_9,    SE_ASTR },
+    { KC_DELT, KC_LEFT, KC_DOWN, KC_RGHT, KC_VOLD, _______, KC_PGDN, KC_4,    KC_5,    KC_6,    SE_PLUS },
+    { SE_COLN, XXXXXXX, XXXXXXX, XXXXXXX, KC_MPLY, KC_LCTL, SE_SLSH, KC_1,    KC_2,    KC_3,    SE_BSLS },
+    { _______, _______, _______, _______, _______, KC_LALT, _______, _______, KC_0,    _______, SE_EQL  }
   },
 
   [_SYMB] = {
-    { NO_LCBR, NO_RCBR, NO_LBRC, NO_RBRC, NO_DLR,  _______, NO_QUO2, NO_QUES, NO_AMPR, NO_LESS, NO_GRTR },
-    { NO_SCLN, NO_SLSH, NO_LPRN, NO_RPRN, NO_PIPE, _______, KC_HASH, NO_CIRC, NO_TILD, NO_QUOT, NO_GRV  },
-    { NO_COLN, NO_EQL,  NO_AT,   KC_EXLM, NO_BSLS, KC_LCDE, KC_PERC, NO_EURO, XXXXXXX, XXXXXXX, NO_ACUT },
-    { KC_GESC, _______, _______, _______, _______, KC_LAEN, _______, _______, KC_COMM, _______, _______ }
+    { SE_LCBR, SE_RCBR, SE_LBRC, SE_RBRC, SE_DLR,  _______, SE_QUO2, SE_QUES, SE_AMPR, SE_LESS, SE_GRTR },
+    { SE_SCLN, SE_SLSH, SE_LPRN, SE_RPRN, SE_PIPE, _______, SE_HASH, SE_CIRC, SE_TILD, SE_QUOT, SE_GRV  },
+    { SE_COLN, SE_EQL,  SE_AT,   SE_EXLM, SE_BSLS, KC_LCTL, SE_PERC, SE_EURO, XXXXXXX, XXXXXXX, SE_ACUT },
+    { KC_GESC, _______, _______, _______, _______, KC_LALT, _______, _______, KC_COMM, _______, _______ }
   },
 
   [_DUAL] = {
-    { KC_GUI1, KC_GUI2, KC_GUI3, KC_GUI4, KC_GUI5, _______, X(POO),  KC_F7,   KC_F8,   KC_F9,   KC_F10   },
-    { KC_GUI6, KC_GUI7, KC_GUI8, KC_GUI9, KC_GUI0, _______, X(HERT), KC_F4,   KC_F5,   KC_F6,   KC_F11   },
-    { KC_LSFT, KC_MPRV, KC_MPLY, KC_MNXT, RESET,   _______, X(SML2), KC_F1,   KC_F2,   KC_F3,   KC_F12   },
-    { _______, _______, _______, _______, _______, _______, _______, _______, KC_PSCR, KC_SLCK, KC_PAUSE }
+    { KC_GUI1, KC_GUI2, KC_GUI3, KC_GUI4, KC_GUI5, _______, X(POO),  KC_F7,   KC_F8,   KC_F9,   KC_F10  },
+    { KC_GUI6, KC_GUI7, KC_GUI8, KC_GUI9, KC_GUI0, _______, X(HERT), KC_F4,   KC_F5,   KC_F6,   KC_F11  },
+    { KC_LSFT, KC_MPRV, KC_MPLY, KC_MNXT, RESET,   _______, X(SML2), KC_F1,   KC_F2,   KC_F3,   KC_F12  },
+    { _______, _______, _______, _______, _______, _______, _______, _______, KC_PSCR, KC_SLCK, KC_PAUS }
   }
 };
 
