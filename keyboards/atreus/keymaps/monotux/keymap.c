@@ -21,23 +21,15 @@ enum custom_keycodes {
 #define KC_LSHD SFT_T(KC_DOT)
 #define KC_RSDT SFT_T(KC_Z)
 
-enum unicode_name { POO, HERT, SML2, DEYE };
+enum unicode_name { POO, HERT, SML2, YAY, MNKY, MASK };
 
-const uint32_t PROGMEM unicode_map[] = { [POO] = 0x1F4A9,
+const uint32_t PROGMEM unicode_map[] = { [POO] =  0x1F4A9,
                                          [HERT] = 0x2764,
                                          [SML2] = 0x1F605,
+                                         [YAY] =  0x1F64C,
+                                         [MNKY] = 0x1F412,
+                                         [MASK] = 0x1F637,
 };
-
-#define KC_GUI1 LGUI(KC_1)
-#define KC_GUI2 LGUI(KC_2)
-#define KC_GUI3 LGUI(KC_3)
-#define KC_GUI4 LGUI(KC_4)
-#define KC_GUI5 LGUI(KC_5)
-#define KC_GUI6 LGUI(KC_6)
-#define KC_GUI7 LGUI(KC_7)
-#define KC_GUI8 LGUI(KC_8)
-#define KC_GUI9 LGUI(KC_9)
-#define KC_GUI0 LGUI(KC_0)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_DEFT] = {
@@ -50,7 +42,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_NAVI] = {
     { KC_INS,  KC_HOME, KC_UP,   KC_END,  KC_VOLU, _______, KC_PGUP, KC_7,    KC_8,    KC_9,    SE_ASTR },
     { KC_DELT, KC_LEFT, KC_DOWN, KC_RGHT, KC_VOLD, _______, KC_PGDN, KC_4,    KC_5,    KC_6,    SE_PLUS },
-    { SE_COLN, XXXXXXX, XXXXXXX, XXXXXXX, KC_MPLY, KC_LCTL, SE_SLSH, KC_1,    KC_2,    KC_3,    SE_BSLS },
+    { SE_COLN, DM_REC1, DM_RSTP, DM_PLY1, KC_MPLY, KC_LCTL, SE_SLSH, KC_1,    KC_2,    KC_3,    SE_BSLS },
     { _______, _______, _______, _______, _______, KC_LALT, _______, _______, KC_0,    _______, SE_EQL  }
   },
 
@@ -62,10 +54,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   },
 
   [_DUAL] = {
-    { KC_GUI1, KC_GUI2, KC_GUI3, KC_GUI4, KC_GUI5, _______, X(POO),  KC_F7,   KC_F8,   KC_F9,   KC_F10  },
-    { KC_GUI6, KC_GUI7, KC_GUI8, KC_GUI9, KC_GUI0, _______, X(HERT), KC_F4,   KC_F5,   KC_F6,   KC_F11  },
-    { KC_LSFT, KC_MPRV, KC_MPLY, KC_MNXT, RESET,   _______, X(SML2), KC_F1,   KC_F2,   KC_F3,   KC_F12  },
-    { _______, _______, _______, _______, _______, _______, _______, _______, KC_PSCR, KC_SLCK, KC_PAUS }
+    { KC_ACL0, KC_BTN1, KC_MS_U, KC_BTN2, KC_WH_U, _______, X(POO),  KC_F7,   KC_F8,   KC_F9,   KC_F10  },
+    { KC_ACL1, KC_MS_L, KC_MS_D, KC_MS_R, KC_WH_D, _______, X(HERT), KC_F4,   KC_F5,   KC_F6,   KC_F11  },
+    { KC_ACL2, KC_MPRV, KC_MPLY, KC_MNXT, X(MNKY), _______, X(SML2), KC_F1,   KC_F2,   KC_F3,   KC_F12  },
+    { RESET,   _______, _______, _______, X(MASK), _______, X(YAY),  _______, KC_PSCR, KC_SLCK, KC_PAUS }
   }
 };
 
